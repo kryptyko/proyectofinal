@@ -5,7 +5,7 @@ import Login from "../components/Auth/Login";
 import Layout from "./Layout";
 import ProtectedRoute from "./ProtectedRoute";
 import Profile from "../components/Profile";
-//import SongList from "../components/MusicPlayer/SongList";
+import ArticlesList from "../components/Articles/ArticlesList";
 
 const Router = createBrowserRouter([
     {
@@ -14,14 +14,14 @@ const Router = createBrowserRouter([
             {
                 index: true, // path: "/"
                 //element: <Home />,
-                element : <Profile />,
+                element : <ArticlesList/>,
             },
             {
                 path: "articles",
                 children: [
                     {
                         index: true,
-                        element: <h1>Articulos</h1>,
+                        element: <ArticlesList/>,
                     },
                     {
                         path: "add",
