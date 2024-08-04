@@ -1,0 +1,17 @@
+.banner {
+    background-image: url('ruta/a/tu/imagen');
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .banner-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh; /* Ajusta la altura según tus necesidades */
+  }
+  
+  .banner-title {
+    font-size: 4rem; /* Ajusta el tamaño de fuente según tus necesidades */
+    color: #00b5d8; /* Color celeste de Bulma */
+  }
