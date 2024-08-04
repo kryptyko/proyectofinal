@@ -1,6 +1,8 @@
 import  { useEffect, useState } from 'react';
 import Navbar from '/src/components/Navbar/Navbar';
 import Banner from '/src/components/Banner/Banner';
+// import ArticleDetail from './components/ArticleDetail/ArticleDetail';
+
 function Home() {
     const [articles, setArticles] = useState([]);
     const [loading, setLoading] = useState(true);

@@ -5,6 +5,7 @@ import Login from "../components/Auth/Login";
 import Layout from "./Layout";
 import ProtectedRoute from "./ProtectedRoute";
 import Profile from "../components/Profile";
+// import ArticleDetail from "../components/ArticleDetail/ArticleDetail";
 //import SongList from "../components/MusicPlayer/SongList";
 
 const Router = createBrowserRouter([
