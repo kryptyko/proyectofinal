@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import { useAuth } from "../../contexts/AuthContext";
+import Banner from "../Banner/Banner";
 
 function Login() {
     const usernameRef = useRef("");
@@ -44,11 +45,12 @@ function Login() {
 
     return (
         <section className="section">
+            <Banner/>
             <div className="columns is-centered">
                 <div className="column is-4">
                     <form onSubmit={handleSubmit}>
                         <div className="field">
-                            <label htmlFor="username">Nombre de usuario:</label>
+                            <label htmlFor="username">Nombre de usuario: (DNI)</label>
                             <div className="control has-icons-left">
                                 <input
                                     className="input"
@@ -83,7 +85,7 @@ function Login() {
                                     type="submit"
                                     className="button is-primary is-fullwidth"
                                 >
-                                    Enviar
+                                    Iniciar Sesion
                                 </button>
                                 {isLoading && <p>Cargando...</p>}
                                 {isError && <p>Error al cargar los datos.</p>}

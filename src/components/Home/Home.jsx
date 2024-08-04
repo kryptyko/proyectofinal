@@ -1,5 +1,6 @@
 import  { useEffect, useState } from 'react';
 import Navbar from '/src/components/Navbar/Navbar';
+import Banner from '/src/components/Banner/Banner';
 function Home() {
     const [articles, setArticles] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -48,8 +49,8 @@ function Home() {
 
     return (
         <div className="container">
-            
-            <h1 className="title is-1">Noticias</h1>
+            <Banner/>
+            {/* <h1 className="title is-1">Noticias</h1> */}
             <Navbar/>
             <div className="columns is-multiline">
                 {articles.map((article) => (
