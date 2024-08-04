@@ -5,6 +5,7 @@ import Login from "../components/Auth/Login";
 import Layout from "./Layout";
 import ProtectedRoute from "./ProtectedRoute";
 import Profile from "../components/Profile";
+import ArticleList from "../components/Articles/ArticleList";
 // import ArticleDetail from "../components/ArticleDetail/ArticleDetail";
 //import SongList from "../components/MusicPlayer/SongList";
 
@@ -14,15 +15,15 @@ const Router = createBrowserRouter([
         children: [
             {
                 index: true, // path: "/"
-                element: <Home />,
-                //element : <Profile />,
+                //element: <Home />,
+                element : <ArticleList />,
             },
             {
                 path: "articles",
                 children: [
                     {
                         index: true,
-                        element: <h1>Articulos</h1>,
+                        element: <ArticleList />,
                     },
                     {
                         path: "add",
