@@ -37,10 +37,10 @@ function ArticlesCard({ article, onDelete }) {
                 <div className="content">
                       {article.content}
                 </div> 
-                {/* {state.isAuthenticated && article.author === state.user.id && ( */}
-                    <button className="delete is-small" onClick={handleDelete}>
-                        
-                    </button>Eliminar
+                {/* {state.isAuthenticated && article.author === state.userid && ( */}
+                    <button className="button is-succes" onClick={handleDelete}>
+                        Eliminar
+                    </button>
                 {/* )} */}
             </div>
         </div>
