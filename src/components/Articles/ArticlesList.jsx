@@ -41,6 +41,10 @@ export default function ArticlesList() {
         }
     }
 
+    function handleDelete(articleId) {
+        setArticle(articles.filter((article) => article.id !== articleId));
+    }
+
     useEffect(() => {
         doFetch();
     }, [page]);
@@ -52,11 +56,11 @@ export default function ArticlesList() {
                 <ul>
                     {articles.map((article) => (
                         <div key={article.id} className="column is-two-thirds">
-                            <ArticlesCard article={article} />
+                            <ArticlesCard article={article} onDelete={handleDelete} />
                         </div>
                     ))}
                 </ul>
-                {isLoading && <p>Cargando más canciones...</p>}
+                {isLoading && <p>Cargando más Noticias...</p>}
                 {nextURL && !isLoading && (
                     <button
                         className="button is-primary"
