@@ -13,7 +13,7 @@ export default function ArticlesList() {
         fetch(
             `${
                 import.meta.env.VITE_API_BASE_URL
-            }infosphere/articles/?page=${page}&page_size=5`
+            }infosphere/articles/?ordering=-created_at&page=${page}&page_size=5`
         )
             .then((response) => {
                 if (!response.ok) {
