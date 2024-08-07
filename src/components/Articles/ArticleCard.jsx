@@ -1,4 +1,4 @@
-
+import {Link} from  "react-router-dom"
 import PropTypes from 'prop-types';
 const ArticlesCard = ({ article }) => {
     return (
@@ -17,9 +17,10 @@ const ArticlesCard = ({ article }) => {
             </div>
             <div className="content">
               {article.abstract || article.content.substring(0, 100)}...
-              <a href={article.url} target="_blank" rel="noopener noreferrer" className="read-more">
-                Leer más
-              </a>
+              <a href={`/articles/${article.id}`} target="_blank" rel="noopener noreferrer" className="read-more">
+              Leer más
+            </a>
+              
             </div>
           </div>
         </div>
