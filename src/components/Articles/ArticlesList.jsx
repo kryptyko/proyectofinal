@@ -71,7 +71,7 @@ export default function ArticlesList() {
                         </div>
                     ))}
                 </ul>
-                {isLoading && <p>Cargando más canciones...</p>}
+                {isLoading && <p>Cargando más Noticias...</p>}
                 {nextURL && !isLoading && (
                     <button
                         className="button is-primary"

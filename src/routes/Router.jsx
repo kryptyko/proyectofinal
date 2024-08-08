@@ -6,6 +6,7 @@ import Layout from "./Layout";
 import ProtectedRoute from "./ProtectedRoute";
 import Profile from "../components/Profile";
 import ArticlesList from "../components/Articles/ArticlesList";
+import ArticlesDeploy from "../components/Articles/ArticlesDeploy";
 
 const Router = createBrowserRouter([
     {
@@ -22,6 +23,10 @@ const Router = createBrowserRouter([
                     {
                         index: true,
                         element: <ArticlesList/>,
+                    },
+                    {
+                        path: ":id",
+                        element: <ArticlesDeploy/>,
                     },
                     {
                         path: "add",
