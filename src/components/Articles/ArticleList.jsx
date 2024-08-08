@@ -1,7 +1,10 @@
-import  { useEffect, useState } from 'react';
+
+
+import { useEffect, useState } from 'react';
 import Navbar from '../Navbar/Navbar';
 import Banner from '../Banner/Banner';
 import ArticlesCard from './ArticleCard';
+
 const ArticleList = () => {
     const [articles, setArticles] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -9,6 +12,7 @@ const ArticleList = () => {
     const [page, setPage] = useState(1);
     const [pageSize, setPageSize] = useState(9);
     const [totalPages, setTotalPages] = useState(0);
+
     useEffect(() => {
         const fetchArticles = async () => {
             try {
@@ -47,38 +51,14 @@ const ArticleList = () => {
     if (loading) return <p>Cargando artículos...</p>;
     if (error) return <p>Error al cargar los artículos: {error}</p>;
 
-  return (
-    <div className="container">
-            <Banner/>
-            {/* <h1 className="title is-1">Noticias</h1> */}
-            <Navbar/>
+    return (
+        <div className="container">
+            <Banner />
+            <Navbar />
             <div className="columns is-multiline">
                 {articles.map((article) => (
-                    // <div className="column is-4" key={article.id}>
-                    //     <div className="card">
-                    //         <div className="card-image">
-                    //             <figure className="image is-4by3">
-                    //                 <img src={article.image || 'https://via.placeholder.com/150'} alt={article.title} />
-                    //             </figure>
-                    //         </div>
-                    //         <div className="card-content">
-                    //             <div className="media">
-                    //                 <div className="media-content">
-                    //                     <p className="title is-4">{article.title} </p>
-                    //                 </div>
-                    //             </div>
-                                
-                    //             <div className="content">
-                    //                 {article.abstract || article.content.substring(0, 100)}...
-                    //                 <a href={article.url} target="_blank" rel="noopener noreferrer" className="read-more">Leer más</a>
-                    //             </div>
-                                
-                    //         </div>
-                    //     </div>
-                    // </div>
                     <div className="column is-4" key={article.id}>
-                    <ArticlesCard article={article} /> {/* Use the ArticlesCard component */}
-
+                        <ArticlesCard article={article} />
                     </div>
                 ))}
             </div>
@@ -100,6 +80,7 @@ const ArticleList = () => {
                     <button
                         className={`button ${page === 1 ? 'is-disabled' : ''}`}
                         onClick={() => handlePageChange(page - 1)}
+                        disabled={page === 1}
                     >
                         Anterior
                     </button>
@@ -109,6 +90,7 @@ const ArticleList = () => {
                     <button
                         className={`button ${page === totalPages ? 'is-disabled' : ''}`}
                         onClick={() => handlePageChange(page + 1)}
+                        disabled={page === totalPages}
                     >
                         Siguiente
                     </button>
@@ -116,7 +98,6 @@ const ArticleList = () => {
             </div>
         </div>
     );
-  
-}
+};
 
-export default ArticleList
+export default ArticleList;
