@@ -7,7 +7,7 @@ const ArticleList = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [page, setPage] = useState(1);
-    const [pageSize, setPageSize] = useState(10);
+    const [pageSize, setPageSize] = useState(9);
     const [totalPages, setTotalPages] = useState(0);
     useEffect(() => {
         const fetchArticles = async () => {
@@ -90,9 +90,9 @@ const ArticleList = () => {
                         value={pageSize}
                         onChange={(e) => handlePageSizeChange(parseInt(e.target.value))}
                     >
-                        <option value="10">10</option>
-                        <option value="20">20</option>
-                        <option value="50">50</option>
+                        <option value="9">9</option>
+                        <option value="18">18</option>
+                        <option value="36">36</option>
                     </select>
                 </div>
                 <span>noticias por página</span>

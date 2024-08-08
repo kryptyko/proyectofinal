@@ -7,6 +7,7 @@ import ProtectedRoute from "./ProtectedRoute";
 import Profile from "../components/Profile";
 import ArticleList from "../components/Articles/ArticleList";
 import ArticlesDeploy from "../components/Articles/ArticlesDeploy";
+import NotFound from "../components/NotFound/NotFound";
 // import ArticleDetail from "../components/ArticleDetail/ArticleDetail";
 //import SongList from "../components/MusicPlayer/SongList";
 
@@ -60,7 +61,7 @@ const Router = createBrowserRouter([
     },
     {
         path: "*",
-        element: <h1>Not Found</h1>,
+        element: <NotFound />,
     },
 ]);
 
