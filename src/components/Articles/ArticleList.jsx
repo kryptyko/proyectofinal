@@ -1,6 +1,6 @@
 import  { useEffect, useState } from 'react';
-import Navbar from '/src/components/Navbar/Navbar';
-import Banner from '/src/components/Banner/Banner';
+import Navbar from '../Navbar/Navbar';
+import Banner from '../Banner/Banner';
 import ArticlesCard from './ArticleCard';
 const ArticleList = () => {
     const [articles, setArticles] = useState([]);

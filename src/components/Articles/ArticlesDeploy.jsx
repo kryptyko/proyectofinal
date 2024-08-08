@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import Navbar from '/src/components/Navbar/Navbar';
-import Banner from '/src/components/Banner/Banner';
+import Navbar from '../Navbar/Navbar';
+import Banner from '../Banner/Banner';
 
 
 function ArticlesDeploy() {
