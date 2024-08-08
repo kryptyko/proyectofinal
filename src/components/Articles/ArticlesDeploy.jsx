@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import Header from './Header';
 
 function ArticlesDeploy() {
     const { id } = useParams();
@@ -36,14 +37,17 @@ function ArticlesDeploy() {
 
     return (
         <div>
-            <h1>{article.title}</h1>
-            <p>Fecha de creación: {article.created_at}</p>
-            <p>Fecha de actualización: {article.updated_at}</p>
-            <p>{article.content}</p>
-            {article.image && <img src={article.image} alt={article.caption} />}
-            <p>Autor: {article.author}</p>
-            <p>Visitas: {article.view_count}</p>
-            {/* ver como agregamos la info de las tablas relaciionadas */}
+            <Header />
+            <div>
+                <h1>{article.title}</h1>
+                <p>Fecha de creación: {article.created_at}</p>
+                <p>Fecha de actualización: {article.updated_at}</p>
+                <p>{article.content}</p>
+                {article.image && <img src={article.image} alt={article.caption} />}
+                <p>Autor: {article.author}</p>
+                <p>Visitas: {article.view_count}</p>
+                {/* Agregar la información de las tablas relacionadas aquí */}
+            </div>
         </div>
     );
 }

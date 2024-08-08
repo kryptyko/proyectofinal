@@ -1,29 +1,32 @@
 import { useState, useEffect } from "react";
 import ArticlesCard from "./ArticlesCard";
+import Header from "./Header";
+import NavBar from "./NavBar";
+
 
 export default function ArticlesList() {
     const [page, setPage] = useState(1);
     const [nextURL, setNextURL] = useState(null);
-    const [articles, setArticle] = useState([]);
+    const [articles, setArticles] = useState([]);
     const [isError, setIsError] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
+    const [selectedCategory, setSelectedCategory] = useState(null);
+    
 
-    const doFetch = async () => {
+    const fetchArticles = async () => {
         setIsLoading(true);
         fetch(
-            `${
-                import.meta.env.VITE_API_BASE_URL
-            }infosphere/articles/?page=${page}&page_size=5`
+            `${import.meta.env.VITE_API_BASE_URL}infosphere/articles/?page=${page}&page_size=5${selectedCategory ? `&category=${selectedCategory}` : ''}`
         )
             .then((response) => {
                 if (!response.ok) {
-                    throw new Error("No se puedieron cargar las Noticias");
+                    throw new Error("No se pudieron cargar las Noticias");
                 }
                 return response.json();
             })
             .then((data) => {
                 if (data.results) {
-                    setArticle((prevArticle) => [...prevArticle, ...data.results]);
+                    setArticles((prevArticles) => [...prevArticles, ...data.results]);
                     setNextURL(data.next);
                 }
             })
@@ -35,23 +38,35 @@ export default function ArticlesList() {
             });
     };
 
+    useEffect(() => {
+        setArticles([]);
+        setPage(1);
+        fetchArticles();
+    }, [selectedCategory]);
+
+    useEffect(() => {
+        fetchArticles();
+    }, [page]);
+
     function handleLoadMore() {
         if (nextURL) {
             setPage((currentPage) => currentPage + 1);
         }
     }
 
-    useEffect(() => {
-        doFetch();
-    }, [page]);
+    function handleCategorySelect(categoryId) {
+        setSelectedCategory(categoryId);
+    }
 
     return (
         <div>
+            <Header />
+            <NavBar onSelectCategory={handleCategorySelect} />
             <div className="my-5">
                 <h2 className="title">Lista de Noticias</h2>
                 <ul>
-                    {articles.map((article) => (
-                        <div key={article.id} className="column is-two-thirds">
+                    {articles.map((article, index) => (
+                        <div key={article.id || index} className="column is-two-thirds">
                             <ArticlesCard article={article} />
                         </div>
                     ))}
