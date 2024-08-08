@@ -6,6 +6,7 @@ import Layout from "./Layout";
 import ProtectedRoute from "./ProtectedRoute";
 import Profile from "../components/Profile";
 import ArticleList from "../components/Articles/ArticleList";
+import ArticlesDeploy from "../components/Articles/ArticlesDeploy";
 // import ArticleDetail from "../components/ArticleDetail/ArticleDetail";
 //import SongList from "../components/MusicPlayer/SongList";
 
@@ -24,6 +25,10 @@ const Router = createBrowserRouter([
                     {
                         index: true,
                         element: <ArticleList />,
+                    },
+                    {
+                        path: ":id",
+                        element: <ArticlesDeploy/>,
                     },
                     {
                         path: "add",
